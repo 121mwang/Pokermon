@@ -1085,6 +1085,11 @@ end
 
 get_gen_allowed = function(card)
   local gen_allowed = false
+  -- If the card is not in pokermon_config.allowed_pokemon then it is not allowed
+  if not pokermon_config.allowed_pokemon["j_poke_" .. tostring(card.name)] then
+    return false
+  end
+
   if card.gen then
     local gen = card.gen
     if gen == 1 and pokermon_config.gen_oneb then gen_allowed = true end
@@ -1099,6 +1104,7 @@ get_gen_allowed = function(card)
   else
     gen_allowed = true
   end
+  
   return gen_allowed
 end
 
