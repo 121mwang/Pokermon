@@ -1512,3 +1512,4 @@ function Controller:capture_focused_input(button, input_type, dt)
   
   return poke_capture_focused_input(self, button, input_type, dt)
 end
+

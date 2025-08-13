@@ -22,7 +22,7 @@ end
 		prefix_config = {},
 		atlas = "pokesleeves",
 		pos = { x = 0, y = 0 },
-		config = {vouchers = { "v_poke_goodrod"}, consumables = {'c_poke_pokeball'}},
+		config = {vouchers = { "v_poke_goodrod"},  jokers = {'j_poke_bulbasaur'}},
 		loc_vars = function(self, info_queue, center)
 			return {vars = {localize("goodrod_variable"), localize("pokeball_variable")}}
 		end,

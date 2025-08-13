@@ -21,9 +21,20 @@ local pokemondeck = {
 	order = 17,
   unlocked = true,
   discovered = true,
-	config = {vouchers = { "v_poke_goodrod"}, consumables = {'c_poke_pokeball'}},
+  config = {vouchers = { "v_poke_goodrod"}, consumables = {'c_poke_pokeball'}, jokers = {'j_ring_master'}, extra = {negative = false}},
   loc_vars = function(self, info_queue, center)
     return {vars = {localize("goodrod_variable"), localize("pokeball_variable")}}
+  end,
+  calculate = function(self, back, context)
+    if context.setting_blind then
+      if #find_joker("Showman") > 0 then
+        local showman = find_joker("Showman")[1]
+        
+        if not showman.edition.negative then
+          showman:set_edition({negative = true}, true)
+        end
+      end
+    end
   end,
 	pos = { x = 0, y = 0 },
 	atlas = "pokedeck",
