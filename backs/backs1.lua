@@ -30,7 +30,7 @@ local pokemondeck = {
       if #find_joker("Showman") > 0 then
         local showman = find_joker("Showman")[1]
         
-        if not showman.edition.negative then
+        if showman.edition == nil or not showman.edition.negative then
           showman:set_edition({negative = true}, true)
         end
       end
